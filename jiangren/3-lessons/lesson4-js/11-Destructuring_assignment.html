@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 基础类型解构
+      //字符串也可以解构赋值，这是因为此时字符串被转换成了一个类似数组的对象
+
+      // 本质"模式匹配"，只要等号两边模式相同，左边变量就会被赋对应值。
+      let arr = [1, [[2], 3]];
+
+      // 对象数组解构
+      //对象的属性没有次序，变量必须与属性同名，才能取到正确的值
+      let obj = {
+        bar: "asd",
+        foo: 123,
+      };
+
+      const person = { name: "John", age: 30 };
+
+      // ...解构
+      let arr3 = [1, 2, 3, 4, 5];
+
+      // 嵌套解构
+      let obj2 = { name: { first: "John", last: "Doe" } };
+
+      // 解构不成功为undefined
+
+      // 解构默认赋值
+
+      //用途
+      //1.交换变量
+
+      //2.从函数返回多个值
+      // 返回一个数组
+
+      // 返回一个对象
+    </script>
+  </head>
+  <body></body>
+</html>

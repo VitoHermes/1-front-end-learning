@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        margin: 0 auto;
+        width: 800px;
+        height: 600px;
+        background-color: lightblue;
+        display: flex;
+        flex-wrap: wrap;
+        /* flex 默认不换行，会挤压子元素宽度 */
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: orange;
+        color: white;
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">hello world</div>
+      <div class="box">hello world</div>
+      <div class="box">hello world</div>
+      <div class="box">hello world</div>
+      <div class="box">hello world</div>
+    </div>
+  </body>
+</html>

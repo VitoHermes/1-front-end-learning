@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>箭头函数中的 this 关键字</title>
+  </head>
+
+  <body>
+    <h1>箭头函数中的 this 关键字</h1>
+    <p>打开控制台查看输出结果</p>
+
+    <script>
+      console.log('=== 箭头函数中的 this 关键字 ===');
+
+      // 1. 传统函数中的 this 指向
+      console.log('\n1. 传统函数中的 this 指向:');
+      console.log('全局 this:', this); // 在浏览器中指向 window 对象
+
+      function traditionalFunction() {
+        console.log('传统函数中的 this:', this);
+        console.log('this === window:', this === window);
+      }
+
+      // 直接调用，this 指向全局对象（window）
+      traditionalFunction();
+
+      // 2. 箭头函数中的 this 指向
+      console.log('\n2. 箭头函数中的 this 指向:');
+
+      const arrowFunction = () => {
+        console.log('箭头函数中的 this:', this);
+        console.log('this === window:', this === window);
+      };
+
+      // 箭头函数的 this 继承自定义时的作用域
+      arrowFunction();
+
+      // 3. 对象方法中的 this 对比
+      console.log('\n3. 对象方法中的 this 对比:');
+
+      const obj = {
+        name: '测试对象',
+
+        // 传统方法
+        traditionalMethod: function () {
+          console.log('传统方法中的 this:', this);
+          console.log('this.name:', this.name);
+        },
+
+        // 箭头方法
+        arrowMethod: () => {
+          console.log('箭头方法中的 this:', this);
+          console.log('this.name:', this.name);
+        },
+      };
+
+      obj.traditionalMethod(); // this 指向 obj
+      obj.arrowMethod(); // this 指向全局对象（window）
+
+      // 4. 事件处理中的 this 对比
+      console.log('\n4. 事件处理中的 this 对比:');
+
+      // 模拟事件处理
+      const button = {
+        text: '点击按钮',
+        addEventListener: function (eventType, handler) {
+          console.log(`添加 ${eventType} 事件监听器`);
+          // 模拟事件触发
+          handler.call(this); // 传统方式：this 指向 button
+        },
+      };
+
+      // 传统事件处理函数
+      button.addEventListener('click', function () {
+        console.log('传统事件处理函数中的 this:', this);
+        console.log('this.text:', this.text);
+      });
+
+      // 箭头事件处理函数
+      button.addEventListener('click', () => {
+        console.log('箭头事件处理函数中的 this:', this);
+        console.log('this.text:', this.text);
+      });
+
+      // 5. 构造函数中的 this 对比
+      console.log('\n5. 构造函数中的 this 对比:');
+
+      // 传统构造函数
+      function Person(name) {
+        this.name = name;
+        this.sayHello = function () {
+          console.log(`传统方法: 你好，我是 ${this.name}`);
+        };
+      }
+
+      // 箭头函数不能用作构造函数
+      // const ArrowPerson = (name) => {
+      //   this.name = name; // 会报错
+      // };
+
+      const person = new Person('张三');
+      person.sayHello();
+
+      // 6. 定时器中的 this 对比
+      console.log('\n6. 定时器中的 this 对比:');
+
+      const timerObj = {
+        name: '定时器对象',
+        startTimer: function () {
+          console.log('开始定时器测试...');
+
+          // 传统函数在定时器中
+          setTimeout(function () {
+            console.log('传统函数定时器中的 this:', this);
+            console.log('this.name:', this.name);
+          }, 100);
+
+          // 箭头函数在定时器中
+          setTimeout(() => {
+            console.log('箭头函数定时器中的 this:', this);
+            console.log('this.name:', this.name);
+          }, 200);
+        },
+      };
+
+      timerObj.startTimer();
+
+      // 7. 实际应用建议
+      console.log('\n7. 实际应用建议:');
+
+      // 推荐：对象方法使用传统函数
+      const recommendedObj = {
+        name: '推荐对象',
+        method: function () {
+          console.log('推荐：对象方法使用传统函数，this 指向对象本身');
+          console.log('this.name:', this.name);
+        },
+      };
+
+      // 推荐：回调函数使用箭头函数
+      const numbers = [1, 2, 3, 4, 5];
+      const doubled = numbers.map(num => {
+        console.log('推荐：回调函数使用箭头函数，this 继承外层作用域');
+        return num * 2;
+      });
+
+      console.log('数组处理结果:', doubled);
+
+      recommendedObj.method();
+
+      console.log('\n=== 示例结束 ===');
+      console.log('\n总结:');
+      console.log('- 传统函数：this 由调用方式决定');
+      console.log('- 箭头函数：this 继承自定义时的作用域');
+      console.log('- 对象方法推荐使用传统函数');
+      console.log('- 回调函数推荐使用箭头函数');
+    </script>
+  </body>
+</html>

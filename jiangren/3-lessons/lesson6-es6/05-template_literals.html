@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>模板字符串示例</title>
+  </head>
+  <body>
+    <h1>模板字符串示例</h1>
+    <p>打开控制台查看结果</p>
+    <ul class="user-list"></ul>
+
+    <script>
+      console.log('=== 模板字符串示例 ===');
+
+      //1.变量插入
+      const name = '张三';
+      const age = 25;
+      const message = `我叫${name}，今年${age}岁`;
+      console.log('1. 变量插入:', message);
+
+      //2.表达式运算
+      const a = 10;
+      const b = 20;
+      const result = `${a} + ${b} = ${a + b}`;
+      console.log('2. 表达式运算:', result);
+
+      //3.多行字符串不用写 \n
+      const multiLine = `
+        这是第一行
+        这是第二行
+        这是第三行
+    `;
+      console.log('3. 多行字符串:', multiLine);
+
+      //4.在函数中拼接 HTML 结构
+      function createUserCard(user) {
+        return `
+            <div class="user-card">
+                <h3>${user.name}</h3>
+                <p>年龄: ${user.age}</p>
+                <p>职业: ${user.job}</p>
+            </div>
+        `;
+      }
+
+      const user = { name: '李四', age: 30, job: '工程师' };
+      console.log('4. HTML结构:', createUserCard(user));
+
+      //5.搭配数组 .map() 渲染模板
+      const users = [
+        { name: '王五', age: 28, city: '北京' },
+        { name: '赵六', age: 32, city: '上海' },
+        { name: '赵六', age: 32, city: '上海' },
+        { name: '赵六', age: 32, city: '上海' },
+      ];
+      const userList = document.querySelector('.user-list');
+      const userListData = users
+        .map(
+          user => `
+        <li>${user.name} - ${user.age}岁 - ${user.city}</li>
+    `
+        )
+        .join('');
+      userList.innerHTML = userListData;
+      console.log('5. 数组渲染:', userList);
+
+      console.log('=== 示例结束 ===');
+    </script>
+  </body>
+</html>

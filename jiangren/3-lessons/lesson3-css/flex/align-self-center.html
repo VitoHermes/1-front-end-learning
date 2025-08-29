@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>Document</title>
+    <style>
+      .container {
+        width: 80%;
+        margin: 0 auto;
+        height: 300px;
+        background-color: lightblue;
+        display: flex;
+        justify-content: center;
+      }
+
+      .box {
+        width: 150px;
+        height: 100px;
+        background-color: orange;
+        color: white;
+        margin: 10px;
+      }
+
+      .box:nth-child(3) {
+        align-self: flex-end;
+      }
+      .box:nth-child(2) {
+        order: 3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+    </div>
+  </body>
+</html>

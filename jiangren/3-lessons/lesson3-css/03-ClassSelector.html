@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>基础选择器之类选择器</title>
+    <style>
+      /* 类选择器口诀: 样式点定义  结构类(class)调用  
+        同一个class可应用在一个或多个标签 开发最常用 
+        要语义化 比如header,nav,sidebar,search,main-navigation*/
+      /* 根据文字提示给标签文本添加颜色 */
+     .red {
+      color:red;
+     }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li class="red">hello world red</li>
+      <li class="red">hello world red</li>
+      <li>hello world </li>
+      <li class="green">hello world green</li>
+      <li class="pink">hello world pink</li>
+    </ul>
+    <div class="red">hi world red</div>
+  </body>
+</html>

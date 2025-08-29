@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="test.js"></script>
+    <script>
+      //var 重复赋值
+      // var、let、const区别总结
+      //1. 变量提升 var
+      console.log('myVariable',myVariable)//undefiend
+      var myVariable = 'hello world'
+      //2. 重复声明 var
+      var userName = 'Ben';
+      var userName = 'Chris';
+      // es6之前 全局作用域，局部作用域（函数作用域）
+
+      //3.全局作用域 window.name,window.location
+      //会污染全局命名空间
+
+      //4.局部作用域
+      function fn(){
+        var num1 = 20;
+        console.log('num1',num1)//20
+      }
+      fn();
+      //console.log('num1',num1)//Uncaught ReferenceError: num1 is not defined
+      //5. 在{}中间的语句，if,switch条件语句，for,while循环中，var没有块级作用域
+      if(true){
+        var a =1;
+      }
+      console.log('a',a)
+      //6. 在没有块级作用域之前，内层变量可能会被外层覆盖
+      //因为var有hoisting，里面的tmp会覆盖外面的tmp
+      var tmp = new Date();
+      function fn(){
+        console.log('tmp',tmp)//undefined,因为变量声明被提升（hoisting）， 但尚未赋值
+        if(false){
+          var tmp = 'hello world'
+        }
+      }
+      fn()
+      // console.log("age", age); //Uncaught TypeError: Assignment to constant variable.
+      // 7.块级作用域 let const
+      if(true){
+        let x = 10;
+        const y = 20;
+        console.log('x1',x)
+      console.log('y1',y)
+      }
+      //console.log('x',x)//Uncaught ReferenceError: x is not defined
+      //console.log('y',y)//Uncaught ReferenceError: y is not defined
+      //8. 暂时性死区 let const
+      //console.log('foo',foo)//Uncaught ReferenceError: Cannot access 'foo' before initialization
+      let foo = 'abc'
+      //9.const定义的值不能改变
+      const age = 10;
+      age = 20;//Uncaught TypeError: Assignment to constant variable.
+    </script>
+  </head>
+  <body></body>
+</html>

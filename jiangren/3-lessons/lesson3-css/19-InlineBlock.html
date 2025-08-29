@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>显示模式之行内块元素(特殊情况)</title>
+    <style>
+      /* inline元素特点:设宽高无效，对margin和padding仅设置左右方向有效，上下无效
+         a里面不能再放链接，a里面可以放块级元素
+         inline-block元素特点  :宽高，行高，margin，padding都可以控制
+         img input td
+        */
+      input,span,td {
+        width: 250px;
+        height:30px;
+      }
+      input {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <span>hello world hello world hello world</span>/*inline元素*/
+    <strong>hello world hello world hello world</strong>/*inline元素*/
+    <table>  /*block元素*/
+      <tr> /*block元素*/
+        <td>cell a</td>/*inline-block元素*/
+        <td>cell b</td>
+      </tr>
+      <tr>
+        <td>cell a</td>
+        <td>cell b</td>
+      </tr>
+    </table>
+    <input type="text">/*inline-block元素*/
+    <input type="text">/*inline-block元素*/
+    <span>hello</span>/*inline元素*/
+  </body>
+</html>

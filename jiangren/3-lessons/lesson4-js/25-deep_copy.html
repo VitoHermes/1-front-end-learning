@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 深拷贝  JSON.parse(JSON.stringify(object))
+      //lodash 的  cloneDeep   _.cloneDeep
+      //structuredClone()
+      const obj = {
+        person: {
+          name: "lin",
+        },
+      };
+      //structuredClone()
+      const newObj = structuredClone(obj);
+      obj.person.name = 'Chris';
+      console.log('obj',obj)
+      console.log('newobj',newObj)
+    </script>
+  </head>
+  <body></body>
+</html>

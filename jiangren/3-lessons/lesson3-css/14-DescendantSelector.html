@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>复合选择器之后代选择器</title>
+    <style>
+      /* ol->li pink,ol->a red, .nav->a yellow */
+    ol li {
+      color: pink;
+    }
+
+    ol a {color:red}
+    .nav a {color:yellow}
+    </style>
+  </head>
+
+  <body>
+    <ol>
+      <li>I'm ol</li>
+      <li>I'm ol</li>
+      <li>I'm ol</li>
+      <li><a href="#">I'm a</a></li>
+    </ol>
+    <ul>
+      <li>I'm ul</li>
+      <li>I'm ul</li>
+      <li>I'm ul</li>
+      <li><a href="#">I'm a</a></li>
+    </ul>
+    <ul class="nav">
+      <li>I'm ul</li>
+      <li>I'm ul</li>
+      <li>I'm ul</li>
+      <li><a href="#">I'm a</a></li>
+      <li><a href="#">I'm a</a></li>
+      <li><a href="#">I'm a</a></li>
+      <li><a href="#">I'm a</a></li>
+    </ul>
+  </body>
+</html>
+
+<!-- 如果用标签选择器，会选中所有的li。用后代选择器选择起来更自由。
+必须通过空格隔开，第一个元素是限定作用， -->

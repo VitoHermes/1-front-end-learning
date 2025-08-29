@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>padding不会影响盒子大小的情况</title>
+    <style>
+      /* h1继承了body的宽度，如果h1不指定宽度，padding左右不会撑开盒子 */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      /* 如果指定h1宽度，padding就会撑开左右大小 */
+      h1 {
+        width: 100%;
+        height: 200px;
+        background-color: pink;
+        padding: 30px;
+      }
+      div {
+        width: 300px;
+        height: 200px;
+        background-color: purple;
+      }
+
+      div p {
+        background-color: skyblue;
+      }
+
+      h1 {
+        width: 100%;
+        height: 200px;
+        background-color: pink;
+        padding: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1></h1>
+    <div>
+      <p>hello</p>
+    </div>
+  </body>
+</html>

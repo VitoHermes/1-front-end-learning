@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">Sign Up</div>
+        <div class="form">
+            <h1 class="title">Your basic info</h1>
+            <div class="input-group">
+                <label for="firstName">First Name</label>
+                <input class="input" type="text" id="firstName" name="firstName" placeholder="Enter your first name">
+            </div>
+            <div class="input-group">
+                <label for="lastName">Last Name</label>
+                <input class="input" type="text" id="lastName" name="lastName" placeholder="Enter your last name">
+            </div>
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input class="input" type="email" id="email" name="email" placeholder="Enter your email">
+                <div class="error-message" id="email-error"></div>
+            </div>
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input class="input" type="text" id="username" name="username" placeholder="Enter your username">
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input class="input" type="password" id="password" name="password" placeholder="Enter your password">
+                <div class="error-message" id="password-error"></div>
+                <div class="password-strength" id="password-strength"></div>
+            </div>
+            <div class="input-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input class="input" type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password">
+                <div class="error-message" id="confirm-password-error"></div>
+            </div>
+            <h1 class="title">Other details</h1>
+            <div class="input-group">
+                <label for="birth-date">Birth Date</label>
+                <input class="input" type="date" id="birth-date" name="birth-date" placeholder="Enter your birth date">
+            </div>
+            <div class="input-group">
+                <label for="gender">Gender</label>
+                <select class="input" id="gender" name="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="country">Country</label>
+                <input class="input" type="text" id="country" name="country" placeholder="Enter your country">
+            </div>
+            <div class="input-group">
+                <label for="about-me">About Me</label>
+                <textarea class="input" id="about-me" name="about-me" rows="5" cols="30"></textarea>
+            </div>
+            <div class="input-group">
+                <label for="profession">Profession</label>
+                <select class="input" id="profession" name="profession">
+                    <option value="developer">Developer</option>
+                    <option value="designer">Designer</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" name="terms">
+                <label for="terms">I'm accepting Terms and Conditions</label>
+            </div>
+            <button id="btn">Sign Up</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    </script>
+</body>
+
+</html>

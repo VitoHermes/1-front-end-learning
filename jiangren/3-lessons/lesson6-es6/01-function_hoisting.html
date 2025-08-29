@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数提升 (Function Hoisting) 示例</title>
+  </head>
+
+  <body>
+    <h1>函数提升 (Function Hoisting) 示例</h1>
+    <p>打开控制台查看输出结果</p>
+
+    <script>
+      console.log('=== 函数提升示例 ===');
+
+      // 1. 函数声明提升 - 会被提升到当前作用域的最前面
+      console.log('1. 函数声明提升示例:');
+      fn(); // 可以正常调用，因为函数声明被提升了
+
+      function fn() {
+        console.log('fn 函数被调用了');
+      }
+
+      // 2. 函数表达式不提升 - 必须先声明和赋值，后调用
+      console.log('\n2. 函数表达式不提升示例:');
+
+      // 这里会报错：Uncaught TypeError: fun is not a function
+      // 因为 fun 被声明为 undefined，而不是函数
+      try {
+        fun(); // 报错：fun is not a function
+      } catch (error) {
+        console.log('调用 fun() 时出错:', error.message);
+      }
+
+      var fun = function () {
+        console.log('fun 函数被调用了');
+      };
+
+      // 现在可以正常调用了
+      fun(); // 正常输出
+
+      // 3. 变量提升 vs 函数提升
+      console.log('\n3. 变量提升 vs 函数提升示例:');
+
+      console.log('变量 a 的值:', a); // undefined (变量提升，但值为 undefined)
+      var a = 10;
+      console.log('变量 a 赋值后的值:', a); // 10
+
+      // 4. 函数声明 vs 函数表达式的区别
+      console.log('\n4. 函数声明 vs 函数表达式区别:');
+
+      // 函数声明
+      function declaredFunction() {
+        console.log('这是函数声明');
+      }
+
+      // 函数表达式
+      var expressionFunction = function () {
+        console.log('这是函数表达式');
+      };
+
+      // 都可以正常调用
+      declaredFunction();
+      expressionFunction();
+
+      // 5. 实际应用中的注意事项
+      console.log('\n5. 实际应用注意事项:');
+
+      // 推荐：使用函数声明
+      function recommendedFunction() {
+        console.log('推荐使用函数声明');
+      }
+
+      // 不推荐：在条件语句中使用函数声明
+      if (true) {
+        // 在某些浏览器中可能有问题
+        function conditionalFunction() {
+          console.log('条件函数声明');
+        }
+        conditionalFunction();
+      }
+
+      // 推荐：在条件语句中使用函数表达式
+      var conditionalExpression;
+      if (true) {
+        conditionalExpression = function () {
+          console.log('条件函数表达式');
+        };
+      }
+      conditionalExpression();
+
+      console.log('\n=== 示例结束 ===');
+    </script>
+  </body>
+</html>

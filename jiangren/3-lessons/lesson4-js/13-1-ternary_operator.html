@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>三元运算符</title>
+  </head>
+  <body>
+    <script>
+      var num = 10;
+      // if (num > 5) {
+      //   result = "Yes";
+      // } else {
+      //   result = "No";
+      // }
+        let result = num > 5 ? 'Yes' :'No';
+      // 2.        用户输入0~59之间的一个数字
+      // 如果数字小于10，则在这个数字前面补0,（加0 拼接） 否则  不做操作
+      // 用一个变量接受这个返回值，alert输出
+      let num1 = prompt('please enter a number between 0-59')
+      console.log(num1 < 10 ? 0 + num1 : num1)
+    </script>
+  </body>
+</html>

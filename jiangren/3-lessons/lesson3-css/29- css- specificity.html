@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>css权重注意点</title>
+    <style>
+      #father {
+        color: red;
+      }
+      /* p继承的权重是0 */
+      /* 自己的颜色权重是1 */
+      p {
+        color: pink;
+      }
+      body {
+        color: red;
+      }
+      a {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 第一优先级：!important会覆盖页面内任何位置的元素样式 -->
+    <!-- 1.内联样式，权值为1000
+         2.ID选择器，权值为0100
+         3.类、伪类、属性选择器，如.foo, :first-child, div[class="foo"]，权值为0010
+         4.标签、伪元素选择器，如div::first-line，权值为0001
+         5.通配符、子类选择器、兄弟选择器，如*, >, +，权值为0000
+    -->
+    <!-- 继承的样式没有权值 -->
+    <!-- p会显示什么颜色？ -->
+    <div id="father">
+      <p>child</p>
+    </div>
+    <a href="#">I have my own style</a>
+  </body>
+</html>

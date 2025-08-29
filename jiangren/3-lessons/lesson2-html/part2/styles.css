@@ -1,0 +1,98 @@
+body {
+  font-family: "Nunito", sans-serif;
+  color: #384047;
+}
+
+form {
+  max-width: 580px;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+}
+
+h1 {
+  margin: 0 0 30px 0;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input,
+textarea,
+select {
+  box-sizing: border-box;
+}
+
+.textInput,
+textarea,
+select {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 0;
+  outline: 0;
+  padding: 15px 10px;
+  width: 100%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin-bottom: 30px;
+  border-radius: 5px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin: 0 4px 8px 0;
+}
+
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1em;
+}
+
+button {
+  padding: 10px;
+  color: #fff;
+  background-color: #4bc970;
+  font-size: 18px;
+  font-style: normal;
+  border-radius: 5px;
+  width: 100%;
+  border: none;
+  margin-bottom: 10px;
+}
+
+fieldset {
+  margin-bottom: 30px;
+  border: none;
+}
+
+legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+legend::before {
+  content: "";
+  background-color: #007a5a;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  border-radius: 8px;
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 580px) {
+  form {
+    width: 300px;
+  }
+}

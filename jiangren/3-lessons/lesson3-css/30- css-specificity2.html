@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>权重的叠加</title>
+    <style>
+      /* 复合选择器会有权重叠加的问题 */
+      /* 权重虽然会叠加,但是永远不会有进位 */
+      /* li会显示什么颜色？ */
+      /* 0001 0001 -> 0002 */
+      ul li {
+        color: green;
+      }
+      /* 0001 */
+      li {
+        color: red;
+      }
+      /* 0010 */
+      #nav-item {
+        color: blue;
+      }
+      /* 0010 0001 -> 0011 */
+      .nav li {
+        color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="nav">
+      <li>cat</li>
+      <li class="nav-item" id="nav-item">dog</li>
+      <li>pig</li>
+    </ul>
+  </body>
+</html>

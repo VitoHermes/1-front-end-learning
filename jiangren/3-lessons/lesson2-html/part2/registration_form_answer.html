@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="mailto:sample@mail.com" method="post" name="registration">
+      <h1>Sign Up</h1>
+
+      <fieldset>
+        <legend>Your basic info</legend>
+        <lable for="firstname">First Name:</lable>
+        <input
+          class="textInput"
+          type="text"
+          id="firstname"
+          name="user_fistname"
+        />
+
+        <lable for="lastname">Last Name:</lable>
+        <input
+          class="textInput"
+          type="text"
+          id="lastname"
+          name="user_lastname"
+        />
+
+        <lable for="mail">Email:</lable>
+        <input class="textInput" type="email" id="mail" name="user_mail" />
+
+        <lable for="username">Username</lable>
+        <input
+          class="textInput"
+          type="text"
+          id="username"
+          name="user_username"
+        />
+
+        <lable for="password">Password</lable>
+        <input
+          class="textInput"
+          type="password"
+          id="password"
+          name="user_password"
+        />
+      </fieldset>
+      <br />
+
+      <fieldset>
+        <legend>Other details</legend>
+        <lable for="birthdate">Birth Date:</lable>
+        <input
+          class="textInput"
+          type="date"
+          id="birthdate"
+          name="user_bithdate"
+        />
+
+        <lable>Gender:</lable><br />
+        <input type="radio" id="male" name="gender" value="male" /><label
+          class="light"
+          for="male"
+          >Male</label
+        ><br />
+        <input type="radio" id="female" name="gender" value="female" /><lable
+          class="light"
+          for="female"
+          >Female</lable
+        ><br />
+        <input type="radio" id="other" name="gender" value="other" /><label
+          class="light"
+          for="other"
+          >Other</label
+        ><br />
+      </fieldset>
+      <br />
+      <fieldset>
+        <lable for="country">Country</lable><br />
+        <select id="country" name="country">
+          <option value="IN">China</option>
+          <option value="US">United States</option>
+          <option value="UK">United Kingdom</option>
+          <option value="TR">Turkey</option>
+        </select>
+      </fieldset>
+      <br />
+      <fieldset>
+        <div>
+          <input id="terms" type="checkbox" value="test" required />
+          <label for="terms">I'm accepting Terms and Condotions</label>
+        </div>
+        <button type="submit">Sign Up</button>
+      </fieldset>
+    </form>
+  </body>
+</html>
+
+<!-- <fieldset> tag is used to group related elements in a form.
+it draws a box around the related elements. -->

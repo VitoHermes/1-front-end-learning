@@ -1,0 +1,6 @@
+[submodule "jiangren/0-Note"]
+	path = jiangren/0-Note
+	url = https://github.com/australiaitgroup/FullStack-27-Note.git
+[submodule "jiangren/1-assignments/4-git/jr-git-intro"]
+	path = jiangren/1-assignments/4-git/jr-git-intro
+	url = https://github.com/VitoHermes/jr-git-intro.git

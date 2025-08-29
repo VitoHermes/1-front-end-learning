@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>变量类型检测</h1>
+    <p>1. typeof 运算符 2. instanceof 运算符 3. Array.isArray(参数)</p>
+    <ul>
+      <li>typeof 运算符：用于检测变量的类型</li>
+      <li>instanceof 运算符：用于检测变量是否为某个对象的实例</li>
+      <li>Array.isArray(参数)：用于检测参数是否为数组</li>
+    </ul>
+    <script>
+      var num = 123;
+      var str = 'abcdef';
+      var bool = true;
+      var arr = [1, 2, 3, 4];
+      var set = new Set([1, 2, 3, 4]);
+      var obj = { name: 'wenzi', age: 25 };
+      var func = function () {
+        console.log('this is function');
+      };
+      var und = undefined;
+      var nul = null;
+      var date = new Date();
+      var reg = /^[a-zA-Z]{5,20}$/;
+      var error = new Error();
+      //number,string,boolean,function, undefined 用typeof
+      console.log('num', typeof num); //number
+      console.log('str', typeof str); //string
+      console.log('bool', typeof bool); //boolean
+      console.log('arr', typeof arr); //object
+      console.log('set', typeof set); //object
+      console.log('obj', typeof obj); //object
+      console.log('func', typeof func); //function
+      console.log('und', typeof und); //undefined
+      console.log('nul', typeof nul); //object
+      console.log('date', typeof date); //object
+      console.log('reg', typeof reg); //object
+      console.log('error', typeof error); //object
+      // instanceof不能判断值类型，但是引用类型可以，值得注意的是arr和obj在instanceof Object的时候的值都是true，
+      //这就导致判断是对象时不准确
+      console.log(num instanceof Number); //f
+
+      console.log(str instanceof String); //f
+
+      console.log(bool instanceof Boolean); //f
+
+      console.log(arr instanceof Array); //true
+
+      console.log(arr instanceof Set); //true
+
+      console.log(set instanceof Set); //false
+
+      console.log(obj instanceof Object); //true
+      console.log('arr', arr instanceof Object); //true
+
+      console.log(func instanceof Function); //t
+
+      console.log(date instanceof Date); //t
+
+      console.log(reg instanceof RegExp); //t
+
+      console.log(error instanceof Error); //t
+
+      console.log(nul instanceof Object); //f
+
+      // (2) Array.isArray(参数);  H5新增的方法  ie9以上版本支持
+      console.log('arr', Array.isArray(arr)); //t
+      console.log('arr', Array.isArray(obj)); //f
+    </script>
+  </body>
+</html>

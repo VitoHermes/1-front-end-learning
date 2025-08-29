@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 遍历对象
+      var obj = {
+        name: "Ben",
+        age: 18,
+        sex: "male",
+        fn: function () {},
+      };
+      // console.log(obj.name)
+      // console.log(obj['age'])
+      // for in 遍历我们的对象
+      // for (变量 in 对象) {
+      // }
+        for (let key in obj){
+          console.log(key);
+          console.log(obj[key])
+        }
+      // Object.keys
+        Object.keys(obj).forEach(key => {
+          console.log(key,obj[key])
+        })
+      // Object.entries() method returns an array of arrays, each containing a key-value pair of the object'
+      //[[name:'Ben'],]
+      Object.entries(obj).forEach(([key,value]) => {
+        console.log(key,value)
+      })
+    </script>
+  </head>
+  <body></body>
+</html>

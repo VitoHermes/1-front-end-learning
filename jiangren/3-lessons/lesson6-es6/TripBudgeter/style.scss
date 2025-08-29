@@ -1,0 +1,169 @@
+$bg: #0e1116;
+$second-bg: #0b0f14;
+$card: #161b22;
+$muted: #8b949e;
+$fg: #e6edf3;
+$brand: #2ea043;
+
+@mixin card {
+  background: $card;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+}
+
+@mixin input {
+  background-color: $second-bg;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: $fg;
+  padding: 0.6rem 0.7rem;
+  border-radius: 10px;
+  outline: none;
+  &:focus {
+    border-color: $brand;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  color: $fg;
+  background: $bg;
+}
+.site-header {
+  text-align: center;
+  padding: 1rem;
+  font-size: 2rem;
+}
+.container {
+  width: min(1000px, 92vw);
+  margin: 0 auto 64px;
+  display: grid;
+  gap: 1rem;
+  .card {
+    h2 {
+      font-size: 1.5rem;
+    }
+    @include card;
+    .form {
+      input,
+      select {
+        @include input;
+      }
+    }
+    .form {
+      .row {
+        display: grid;
+        gap: 0.75rem;
+        margin-top: 0.5rem;
+        grid-template-columns: 1fr;
+        @media (min-width: 820px) {
+          grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        }
+        label {
+          display: grid;
+          gap: 0.35rem;
+          font-weight: bold;
+        }
+        input,
+        select {
+          @include input;
+        }
+      }
+    }
+
+    .row {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+      grid-template-columns: 1fr;
+      @media (min-width: 820px) {
+        grid-template-columns: 1.4fr 1fr auto;
+      }
+      label {
+        display: grid;
+        gap: 0.35rem;
+        font-weight: bold;
+      }
+      input,
+      select {
+        @include input;
+      }
+    }
+    .btn {
+      border: none;
+      background-color: $brand;
+      color: #071a0a;
+      padding: 0.55rem 0.9rem;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      height: 36px;
+      text-align: center;
+      line-height: 1;
+
+      &.ghost {
+        background-color: transparent;
+        color: $fg;
+        border: 1px solid rgba(46, 160, 67, 0.5);
+      }
+      &.tiny {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+      }
+    }
+  }
+  .list {
+    .list-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      .pill {
+        background-color: rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        padding: 0.2rem 0.6rem;
+      }
+    }
+    .items {
+      list-style: none;
+      display: grid;
+      gap: 0.5rem;
+      li {
+        background-color: $second-bg;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 12px;
+        padding: 0.6rem 0.8rem;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0.5rem;
+        align-items: center;
+        .id {
+          font-size: 0.8rem;
+        }
+        .meta {
+          color: $muted;
+        }
+        .mount {
+          font-weight: bold;
+        }
+        .pill {
+          margin-left: 0.5rem;
+        }
+        button.remove {
+          background: transparent;
+          color: $fg;
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          border-radius: 10px;
+          cursor: pointer;
+          padding: 0.2rem 0.6rem;
+          &:hover {
+            border-color: #ff6b6b;
+            color: #ff6b6b;
+          }
+        }
+      }
+    }
+  }
+}

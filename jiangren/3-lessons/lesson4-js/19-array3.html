@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //1. 新建一个数组，里面存放10个整数（ 1~10）
+
+      // 2.将数组 [2, 0, 6, 1, 77, 0, 52, 0, 25, 7] 中大于等于 10 的元素选出来，放入新数组。
+      // 1、声明一个新的数组用于存放新数据newArr。
+      // 2、遍历原来的旧数组， 找出大于等于 10 的元素。
+      // 3、依次追加给新数组 newArr。
+      // 方法1
+      var arr2 = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+      const newArray = [];
+      arr2.forEach(item=>{
+        if(item >=10){
+          newArray.push(item)
+        }
+      })
+      // 方法2
+      var arr3 = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+      const newArr = arr3.filter(item=>{
+        return item >= 10
+      })
+      console.log('newArr',newArr);
+    </script>
+  </head>
+  <body></body>
+</html>

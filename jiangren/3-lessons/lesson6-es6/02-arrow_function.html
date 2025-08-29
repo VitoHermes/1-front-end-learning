@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      const arrowFn = (x, y) => {
+        console.log('arrowFn');
+        console.log(x, y);
+      };
+      arrowFn(100, 200);
+      // 1. 箭头函数 基本语法
+      const fn = () => {
+        console.log('fn');
+      };
+      // 2. 只有一个形参的时候，可以省略小括号
+      const fn1 = x => {
+        console.log(x);
+      };
+      fn1(100);
+      // // 3. 只有一行代码的时候，我们可以省略大括号
+      const fn2 = x => x * x;
+      console.log(fn2(200));
+
+      // 4. 箭头函数可以有多个形参
+      const fn3 = (x, y) => {
+        console.log(x, y);
+      };
+      fn3(100, 200);
+      // 5. 箭头函数可以直接返回一个对象
+      const fn4 = (x, y) => ({ x, y });
+      console.log(fn4(100, 200));
+      // 6. 箭头函数可以有默认参数
+      const fn5 = (x, y = 100) => {
+        console.log(x, y);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>块级盒子水平居中对齐</title>
+    <style>
+      /* Horizontal centering of inline and inline-block elements */
+      /*1.header设置 margin top 100px, 并且水平居中 */
+      /*2. span水平居中 */
+      /*3. span上下左右居中 */
+      * {
+        margin:0;
+        padding: 0;
+      }
+      .header {
+        width: 800px;
+        height: 200px;
+        background-color: blue;
+        color:white;
+        margin: 100px auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;   
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <span>hello</span>
+    </div>
+  </body>
+</html>

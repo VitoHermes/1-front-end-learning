@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 函数返回值注意事项
+      // 1. return 终止函数
+      function getSum(num1,num2){
+        return num1 + num2;
+        alert('hello')
+      }
+      getSum();
+      // 2. return 只能返回一个值
+      function getSum2(num1,num2){
+        return num1+ num2, true;//返回结果是最后一个值
+      }
+      console.log(getSum2(1,2))
+      // 3.  我们求任意两个数的 加减乘数结果
+
+      // 4. 我们的函数如果有return 则返回的是 return 后面的值，如果函数么有 return 则返回undefined
+      function fn2(){
+        let value = 'hello'
+      }
+      console.log(fn2())//undefined
+    </script>
+  </body>
+</html>

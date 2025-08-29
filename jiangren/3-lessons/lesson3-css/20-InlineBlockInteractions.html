@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>元素显示模式转换</title>
+    <style>
+      /* 给 a 设宽150px,高50px，独占一行 */
+     
+      /* 把 div 块级元素转换为行内元素，此时设置宽高无效*/
+      
+      /* 给span 设宽150px,高50px，一行多个 */
+      a {
+        display: block;
+        width: 150px;
+        height: 50px;
+      }
+     
+      div {
+        display: inline;
+      }
+ 
+      span{
+        display: inline-block;
+        width: 150px;
+        height: 50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <a href="#">hello world</a>
+    <a href="#">hello world</a>
+    <div>hello world</div>
+    <div>hello world</div>
+    <span>hello world</span>
+    <span>hello world</span>
+  </body>
+</html>
