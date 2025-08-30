@@ -5,16 +5,14 @@ type Post = {
   body: string;
 };
 
-const postsUl = document.querySelector('#posts') as HTMLUListElement | null;
-const countEl = document.querySelector('#count') as HTMLElement | null;
-const statusEl = document.querySelector('#status') as HTMLElement | null;
-const createStatusEl = document.querySelector(
-  '#create-status'
-) as HTMLElement | null;
+const postsUl = document.querySelector('#posts') as HTMLUListElement;
+const countEl = document.querySelector('#count') as HTMLElement;
+const statusEl = document.querySelector('#status') as HTMLElement;
+const createStatusEl = document.querySelector('#create-status') as HTMLElement;
 const btnLoad = document.querySelector('#btn-load') as HTMLButtonElement;
-const form = document.querySelector('#create-form') as HTMLFormElement | null;
-const inputTitle = document.querySelector('#title') as HTMLInputElement | null;
-const inputBody = document.querySelector('#body') as HTMLTextAreaElement | null;
+const form = document.querySelector('#create-form') as HTMLFormElement;
+const inputTitle = document.querySelector('#title') as HTMLInputElement;
+const inputBody = document.querySelector('#body') as HTMLTextAreaElement;
 
 let postsState: Post[] = [];
 
@@ -52,6 +50,10 @@ btnLoad.addEventListener('click', async () => {
 
     statusEl.textContent = 'Load successfully';
     statusEl.className = 'status ok';
+    setTimeout(() => {
+      statusEl.textContent = '';
+      statusEl.className = '';
+    }, 3000);
   } catch (e: any) {
     statusEl.textContent = 'error: ' + e.message;
     statusEl.className = 'status error';
@@ -77,7 +79,7 @@ form?.addEventListener('submit', async e => {
   const body = inputBody?.value.trim();
   if (!title || !body) return;
 
-  const optimistic: Post = { title, body, userId: 1 };
+  const optimistic: Post = { title, body };
   postsState = [optimistic, ...postsState];
   renderPosts(postsState);
   createStatusEl.textContent = 'Submitting...';
@@ -91,6 +93,10 @@ form?.addEventListener('submit', async e => {
     renderPosts(postsState);
     createStatusEl.textContent = 'Submit successfully ✓';
     createStatusEl.className = 'status ok';
+    setTimeout(() => {
+      createStatusEl.textContent = '';
+      createStatusEl.className = '';
+    }, 3000);
     form.reset();
   } catch (e: any) {
     postsState = postsState.filter(p => p !== optimistic);

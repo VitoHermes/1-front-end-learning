@@ -37,6 +37,10 @@ btnLoad.addEventListener('click', async () => {
         renderPosts(postsState);
         statusEl.textContent = 'Load successfully';
         statusEl.className = 'status ok';
+        setTimeout(() => {
+            statusEl.textContent = '';
+            statusEl.className = '';
+        }, 3000);
     }
     catch (e) {
         statusEl.textContent = 'error: ' + e.message;
@@ -60,7 +64,7 @@ form === null || form === void 0 ? void 0 : form.addEventListener('submit', asyn
     const body = inputBody === null || inputBody === void 0 ? void 0 : inputBody.value.trim();
     if (!title || !body)
         return;
-    const optimistic = { title, body, userId: 1 };
+    const optimistic = { title, body };
     postsState = [optimistic, ...postsState];
     renderPosts(postsState);
     createStatusEl.textContent = 'Submitting...';
@@ -70,6 +74,10 @@ form === null || form === void 0 ? void 0 : form.addEventListener('submit', asyn
         renderPosts(postsState);
         createStatusEl.textContent = 'Submit successfully ✓';
         createStatusEl.className = 'status ok';
+        setTimeout(() => {
+            createStatusEl.textContent = '';
+            createStatusEl.className = '';
+        }, 3000);
         form.reset();
     }
     catch (e) {
