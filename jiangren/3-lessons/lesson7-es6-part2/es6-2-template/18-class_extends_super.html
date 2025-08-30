@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        //ES6 类支持继承，你可以通过 extends 关键字创建子类，子类可以继承父类的属性和方法。
-
-     
+      //ES6 类支持继承，你可以通过 extends 关键字创建子类，子类可以继承父类的属性和方法。
+      class Person {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+      }
+      class Student extends Person {
+        constructor(name, age, grade) {
+          super(name, age);
+          this.grade = grade;
+        }
+      }
+      const student = new Student('李四', 20, '高三');
+      console.log(student);
     </script>
-</body>
+  </body>
 </html>

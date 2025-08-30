@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Promise.all() Example</title>
-</head>
-<body>
-  <div id="user-info"></div>
-  <div id="posts-info"></div>
-  <div id="comments-info"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise.all() Example</title>
+  </head>
+  <body>
+    <div id="user-info"></div>
+    <div id="posts-info"></div>
+    <div id="comments-info"></div>
 
-  <script>
-    //获取多个用户的数据
-    //需要从不同的 API 获取用户信息、文章列表和评论列表。在所有请求都成功返回后，我们可以统一处理并显示这些数据。
-    // 模拟 API 请求
-   
-    // 使用 Promise.all() 来并行请求多个 API
-   
-  </script>
-</body>
+    <script>
+      //获取多个用户的数据
+      //需要从不同的 API 获取用户信息、文章列表和评论列表。在所有请求都成功返回后，我们可以统一处理并显示这些数据。
+      // 模拟 API 请求
+      const userApi = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('userApi success');
+        }, 1000);
+      });
+      const postsApi = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('postsApi success');
+        }, 3000);
+      });
+      const commentsApi = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('commentsApi success');
+        }, 2000);
+      });
+
+      // 使用 Promise.all() 来并行请求多个 API
+      const previousTime = Date.now();
+      console.log(previousTime);
+      Promise.all([userApi, postsApi, commentsApi])
+        .then(res => {
+          console.log(res);
+          console.log(Date.now() - previousTime); // 3s 执行时间
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    </script>
+  </body>
 </html>

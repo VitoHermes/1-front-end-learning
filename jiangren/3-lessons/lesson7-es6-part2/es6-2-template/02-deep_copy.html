@@ -5,18 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <!-- 引入lodash库 -->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
     <script>
       // 1.深拷贝  JSON.parse(JSON.stringify(object))
       // 缺点：不能复制函数、undefined、Date、Map、循环引用等
+      let obj = {
+        id: 1,
+        name: 'andy',
+        msg: {
+          age: 18,
+        },
+      };
+
+      console.log('obj', Object.assign({}, obj)); // 浅拷贝, 只能拷贝第一层
+      obj.msg.age = 20;
+      console.log('obj', Object.assign({}, obj)); // 浅拷贝, 只能拷贝第一层，age也被修改了
+
+      let copiedObj = JSON.parse(JSON.stringify(obj)); // 深拷贝, 可以拷贝多层
+      obj.msg.age = 20;
+      console.log('obj', obj);
+      console.log('copiedObj', copiedObj); // 深拷贝, 可以拷贝多层，age没有被修改
 
       //2.structuredClone() 原生深拷贝，推荐
       //支持 Date、Map、Set、ArrayBuffer 等
       // 不支持函数、DOM 节点、循环引用也会抛错
-    
-      
+      let copiedObj2 = structuredClone(obj);
+
       //3.lodash 的  cloneDeep   _.cloneDeep（功能最强）
       //能拷贝函数、原型链、循环引用等复杂对象
       //缺点是体积大，依赖库
+      let copiedObj3 = _.cloneDeep(obj);
+      console.log('copiedObj3', copiedObj3);
+
+      // 测试深拷贝是否成功
+      obj.msg.age = 25;
+      console.log('修改后的obj', obj);
+      console.log('copiedObj3 保持不变', copiedObj3);
     </script>
   </head>
   <body></body>

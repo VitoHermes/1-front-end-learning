@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-     
+      const fetchData = new Promise((resolve, reject) => {
+        let success = false;
+        if (success) {
+          resolve('success');
+        } else {
+          reject('error');
+        }
+      });
 
+      fetchData
+        .then(result => {
+          console.log(result);
+        })
+        .catch(error => {
+          console.log(error);
+        });
+      // hanle loading
+      // handle error
     </script>
-</body>
+  </body>
 </html>

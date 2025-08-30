@@ -8,15 +8,17 @@
     <script>
       //shallow copy:
       //lodash _.clone方法
+      let arr = ['apple', 'banana', 'orange'];
+      let arr3 = [...arr];
+      let arr4 = Array.from(arr);
+      let arr2 = arr.slice();
 
-    
-      
       //spread operator
- 
-      
+      const obj = { name: 'apple', age: 18 };
+      const obj3 = { ...obj };
+      const obj5 = JSON.parse(JSON.stringify(obj));
       //Object.assign()
-     
-      
+      const obj4 = Object.assign({}, obj);
     </script>
   </head>
   <body></body>

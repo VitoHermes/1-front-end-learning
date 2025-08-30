@@ -1,0 +1,105 @@
+body {
+  margin: 0;
+  background: #f5f7fa;
+}
+
+.site-header {
+  text-align: center;
+  padding: 1rem;
+  background: #2ea043;
+  color: white;
+}
+.site-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.card {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+.card h2 {
+  margin-top: 0;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+.form label {
+  display: grid;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+.form input, .form textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+.form input:focus, .form textarea:focus {
+  border-color: #2ea043;
+  outline: none;
+}
+.form .row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn {
+  background: #2ea043;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btn:hover {
+  opacity: 0.9;
+}
+
+.status {
+  font-size: 0.9rem;
+  color: #666;
+}
+.status.ok {
+  color: #2ea043;
+}
+.status.error {
+  color: #d11;
+}
+
+.items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+.items li {
+  padding: 0.75rem;
+  background: #fafafa;
+  border: 1px solid #eee;
+  border-radius: 6px;
+}
+.items li .title {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+.items li .meta {
+  color: #666;
+  font-size: 0.85rem;
+}/*# sourceMappingURL=styles.css.map */

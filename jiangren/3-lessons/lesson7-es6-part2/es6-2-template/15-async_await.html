@@ -1,14 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
+    <button id="btn">点击</button>
+    <div class="result"></div>
     <script>
-       
+      const btn = document.querySelector('#btn');
+      const result = document.querySelector('.result');
 
+      const mockApi = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('mockApi success');
+        }, 1000);
+      });
+
+      const fetchData = async id => {
+        try {
+          const res = await fetch(
+            `https://jsonplaceholder.typicode.com/todos/${id}`
+          );
+          if (!res.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const data = await res.json();
+          console.log('API返回数据:', data);
+          return data;
+        } catch (error) {
+          console.log('获取数据出错:', error);
+          throw error;
+        }
+      };
+
+      btn.addEventListener('click', async () => {
+        try {
+          result.innerHTML = '加载中...';
+          const data1 = await fetchData(1);
+          const data2 = await fetchData(2);
+
+          if (data1 && data1.title && data2 && data2.title) {
+            result.innerHTML = `待办事项: ${data1.title} 待办事项: ${
+              data2.title
+            } (ID: ${data1.id}, 完成状态: ${
+              data1.completed ? '已完成' : '未完成'
+            }) 待办事项: ${data2.title} (ID: ${data2.id}, 完成状态: ${
+              data2.completed ? '已完成' : '未完成'
+            })`;
+          } else {
+            result.innerHTML = '没有数据';
+          }
+        } catch (error) {
+          result.innerHTML = `错误: ${error.message}`;
+        }
+      });
     </script>
-</body>
+  </body>
 </html>

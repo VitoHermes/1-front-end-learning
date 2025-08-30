@@ -1,15 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        //模拟异步操作请求数据
+      //模拟异步操作请求数据, mock api request
+      let callCount = 0;
+      const fetchData = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          const data = {
+            name: 'John',
+            age: 20,
+          };
+          //   resolve(data);
+          reject(new Error('error'));
+        }, 1000);
+      });
 
+      // 使用 promise 来处理异步操作
+      fetchData
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
 
+      // 使用 async/await 来处理异步操作
+      async function getData() {
+        try {
+          const res = await fetchData;
+          console.log(res);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+
+      getData();
     </script>
-</body>
+  </body>
 </html>

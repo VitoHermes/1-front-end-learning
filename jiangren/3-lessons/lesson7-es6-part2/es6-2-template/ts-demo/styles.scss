@@ -1,0 +1,127 @@
+// 🎨 Theme colors
+$bg: #f5f7fa;
+$card: #fff;
+$brand: #2ea043;
+$error: #d11;
+$muted: #666;
+
+// Base
+body {
+  margin: 0;
+  background: $bg;
+}
+
+// Header
+.site-header {
+  text-align: center;
+  padding: 1rem;
+  background: $brand;
+  color: white;
+
+  h1 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+}
+
+// Container
+.container {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+// Card
+.card {
+  background: $card;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.1);
+
+  h2 {
+    margin-top: 0;
+  }
+}
+
+// Form
+.form {
+  display: grid;
+  gap: 1rem;
+
+  label {
+    display: grid;
+    gap: 0.5rem;
+    font-weight: 600;
+  }
+
+  input, textarea {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 0.5rem;
+    box-sizing: border-box;
+
+    &:focus {
+      border-color: $brand;
+      outline: none;
+    }
+  }
+
+  .row {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+// Buttons
+.btn {
+  background: $brand;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    opacity: .9;
+  }
+}
+
+// Status
+.status {
+  font-size: 0.9rem;
+  color: $muted;
+
+  &.ok { color: $brand; }
+  &.error { color: $error; }
+}
+
+// List
+.items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+
+  li {
+    padding: 0.75rem;
+    background: #fafafa;
+    border: 1px solid #eee;
+    border-radius: 6px;
+
+    .title {
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .meta {
+      color: $muted;
+      font-size: 0.85rem;
+    }
+  }
+}

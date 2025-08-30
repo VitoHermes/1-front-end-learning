@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        // 定义一个类
-
+      // 定义一个类
+      class Person {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+        getName() {
+          return this.name;
+        }
+        getAge() {
+          return this.age;
+        }
+      }
+      // 继承
+      class Student extends Person {
+        constructor(name, age, grade) {
+          super(name, age);
+          this.grade = grade;
+        }
+      }
+      const person = new Person('张三', 18);
+      console.log(person);
+      const student = new Student('李四', 20, '高三');
+      console.log(student);
+      console.log(student.getName());
+      console.log(student.getAge());
     </script>
-</body>
+  </body>
 </html>

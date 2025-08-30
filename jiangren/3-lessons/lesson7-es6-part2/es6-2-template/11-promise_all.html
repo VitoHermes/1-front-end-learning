@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        //Promise.all()：用于并行执行多个异步操作，并在所有操作完成时返回结果
-    
-        //Promise.all() 会等待所有传入的 Promise 都完成（无论成功还是失败）。
-        //如果其中一个 Promise 失败，Promise.all() 会立刻失败，并返回错误。
+      //Promise.all()：用于并行执行多个异步操作，并在所有操作完成时返回结果
+      const promise1 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('promise1 success');
+        }, 1000);
+      });
+      const promise2 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          //   resolve('promise2 success');
+          reject('promise2 error');
+        }, 5000);
+      });
+      const promise3 = new Promise((resolve, reject) => {
+        setTimeout(() => {
+          //   resolve('promise3 success');
+          reject('promise3 error');
+        }, 1000);
+      });
+      Promise.all([promise1, promise2, promise3])
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        }); // promise3 error 会立即返回错误
+
+      //Promise.all() 会等待所有传入的 Promise 都完成（无论成功还是失败）。
+      //如果其中一个 Promise 失败，Promise.all() 会立刻失败，并返回错误。
     </script>
-</body>
+  </body>
 </html>
