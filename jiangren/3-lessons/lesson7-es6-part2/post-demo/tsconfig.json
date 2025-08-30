@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "target": "ES2017",
+        "lib": ["DOM", "ES2017"],
+        "outFile": "main.js",
+        "strict": false
+    },
+    "files": ["main.ts"]
+}
