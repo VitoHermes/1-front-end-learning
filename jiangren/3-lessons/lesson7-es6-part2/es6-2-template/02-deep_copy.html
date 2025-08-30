@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 1.深拷贝  JSON.parse(JSON.stringify(object))
+      // 缺点：不能复制函数、undefined、Date、Map、循环引用等
+
+      //2.structuredClone() 原生深拷贝，推荐
+      //支持 Date、Map、Set、ArrayBuffer 等
+      // 不支持函数、DOM 节点、循环引用也会抛错
+    
+      
+      //3.lodash 的  cloneDeep   _.cloneDeep（功能最强）
+      //能拷贝函数、原型链、循环引用等复杂对象
+      //缺点是体积大，依赖库
+    </script>
+  </head>
+  <body></body>
+</html>
