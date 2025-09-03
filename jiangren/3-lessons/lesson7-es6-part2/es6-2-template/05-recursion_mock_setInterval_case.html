@@ -17,6 +17,30 @@
         return n * fn(n - 1);
       }
       console.log(fn(5));
+
+      // 正确的防抖实现
+      function debounce(fn, delay) {
+        let debounceTimer = null; // 使用 let 而不是 const
+        return function (...args) {
+          // 返回一个新函数
+          if (debounceTimer) {
+            clearTimeout(debounceTimer);
+          }
+          debounceTimer = setTimeout(() => {
+            fn.apply(this, args); // 使用 apply 保持 this 上下文和参数
+          }, delay);
+        };
+      }
+
+      // 测试防抖函数
+      const debouncedFn = debounce(function (message) {
+        console.log('debounce:', message);
+      }, 1000);
+
+      // 快速连续调用，只有最后一次会执行
+      debouncedFn('第一次调用');
+      debouncedFn('第二次调用');
+      debouncedFn('第三次调用');
     </script>
   </body>
 </html>
